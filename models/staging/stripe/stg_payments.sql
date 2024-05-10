@@ -1,9 +1,18 @@
 -- {{ config(materialized='view') }}
+with
 
-select
-    id as payment_id,
-    orderid as order_id,
-    status,
-    amount,
-    created
-from raw.stripe.payment
+source as (
+    select * from {{ source('stripe', 'payment')}}
+),
+
+staged as (
+    select
+        id as payment_id,
+        orderid as order_id,
+        status,
+        amount,
+        created
+    from source
+)
+
+select * from staged

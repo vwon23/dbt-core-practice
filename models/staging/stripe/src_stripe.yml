@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: stripe
+    database: raw
+    schema: stripe
+    tables:
+      - name: payment
+        columns:
+          - name: id
+            data_type: number
+          - name: orderid
+            data_type: number
+          - name: paymentmethod
+            data_type: varchar
+          - name: status
+            data_type: varchar
+          - name: amount
+            data_type: number
+          - name: created
+            data_type: date
+          - name: _etl_loaded_at
+            data_type: timestamp_ntz
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 30, period: day}
