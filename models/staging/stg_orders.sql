@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+-- {{ config(materialized='view') }}
 
 select
     id as order_id,
