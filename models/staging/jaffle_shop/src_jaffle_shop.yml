@@ -8,6 +8,9 @@ sources:
         columns:
           - name: id
             data_type: number
+            tests:
+              - unique
+              - not_null
           - name: first_name
             data_type: varchar
           - name: last_name
@@ -19,8 +22,11 @@ sources:
 
       - name: orders
         columns:
-          - name: idI
+          - name: id
             data_type: number
+            tests:
+              - unique
+              - not_null
           - name: user_id
             data_type: number
           - name: order_date
