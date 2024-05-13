@@ -2,12 +2,18 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: a clone of Postgres application database
     database: raw
     tables:
       - name: customers
+        description: the raw customers data
         columns:
           - name: id
+            description: the primary key for the raw customer data
             data_type: number
+            tests:
+              - unique
+              - not_null
           - name: first_name
             data_type: varchar
           - name: last_name
@@ -18,9 +24,14 @@ sources:
           error_after: {count: 30, period: day}
 
       - name: orders
+        descrption: the raw orders data
         columns:
-          - name: idI
+          - name: id
+            description: the primary key for the raw orders data
             data_type: number
+            tests:
+              - unique
+              - not_null
           - name: user_id
             data_type: number
           - name: order_date

@@ -1,4 +1,4 @@
-{% docs customers %}
+{% docs dim_customers %}
 
 This table contains customers and their orders
 
