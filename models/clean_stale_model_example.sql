@@ -1,0 +1,1 @@
+{{ clean_stale_models(days=2, dry_run=False) }}
