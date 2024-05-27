@@ -7,3 +7,6 @@ packages:
 
   - package: elementary-data/elementary
     version: 0.15.2
+
+  - package: tnightengale/dbt_meta_testing
+    version: 0.3.6
