@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: '{{ doc("dim_customers") }}'
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: first_order_date
+        description: NULL when a customer has not yet placed an order.
+
+  - name: fct_orders
+    description: ""
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: 'amount > 5'
+    columns:
+      - name: order_id
+        data_type: number
+        description: ""
+
+      - name: customer_id
+        data_type: number
+        description: ""
+
+      - name: order_date
+        data_type: date
+        description: ""
+
+      - name: amount
+        data_type: number
+        description: ""
+        tests:
+          - average_dollars_spent_greater_than_one:
+              group_by_column: customer_id

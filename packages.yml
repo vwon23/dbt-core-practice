@@ -7,3 +7,12 @@ packages:
 
   - package: elementary-data/elementary
     version: 0.15.2
+
+  - package: tnightengale/dbt_meta_testing
+    version: 0.3.6
+
+  - package: calogica/dbt_expectations
+    version: 0.10.3
+
+  - package: dbt-labs/audit_helper
+    version: 0.11.0
