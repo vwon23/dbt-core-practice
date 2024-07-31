@@ -8,4 +8,4 @@ select
 from payments
 
 group by order_id
-having total_amount > 50
+having total_amount < 50
